@@ -39,4 +39,9 @@ public class UserDatabase implements IUserDatabase{
         }
         return null;
     }
+
+    @Override
+    public User updateUser(User u) {
+        return null;
+    }
 }

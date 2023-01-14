@@ -52,4 +52,10 @@ public class ProxyUserDatabase implements IUserDatabase {
         }
         return false;
     }
+
+    @Override
+    public User updateUser(User u) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

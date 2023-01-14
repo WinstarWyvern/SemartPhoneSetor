@@ -9,4 +9,6 @@ public interface IUserDatabase {
     public void addNewUser(User u);
     
     public User checkUserLogin(String email, String password);
+
+    public User updateUser(User u);
 }

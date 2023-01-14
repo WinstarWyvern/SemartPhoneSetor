@@ -42,7 +42,25 @@ public class Store {
         }
     }
 
+    public void showAllUser() {
+        int i = 0;
+        System.out.println("User List: ");
+        for (User user : customers) {
+            System.out.println((i + 1) + ".");
+            System.out.println("Name: " + user.getName());
+            System.out.println("Email: " + user.getEmail());
+            System.out.println("Role: " + user.getRole());
+            System.out.println();
+            System.out.println();
+            i++;
+        }
+    }
+
     public void phoneBought(int index) {
+        if (!indexChecking(index)) {
+            return;
+        }
+
         int quantity;
         System.out.println("Choose Quantity: ");
         quantity = sc.nextInt();
@@ -61,5 +79,24 @@ public class Store {
             System.out.println("Press Enter to Continue..");
             sc.nextLine();
         }
+    }
+
+    public void promoteUser(int index) {
+        if (!indexChecking(index)) {
+            return;
+        }
+
+        User candidate = customers.get(index - 1);
+        userDb.updateUser(candidate);
+    }
+
+    private boolean indexChecking(int index) {
+        if (index <= 0 || index > phones.size()) {
+            System.out.println("Invalid Input, Returning to previus menu");
+            System.out.println("Press Enter to Continue..");
+            sc.nextLine();
+            return false;
+        }
+        return true;
     }
 }

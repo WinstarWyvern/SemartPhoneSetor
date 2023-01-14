@@ -31,15 +31,7 @@ public class UserMenu {
         input = sc.nextInt();
         sc.nextLine();
 
-        if (input == -1) {
-            System.out.println("Returning to previus menu");
-            System.out.println("Press Enter to Continue..");
-            sc.nextLine();
-            return;
-        } else {
-            store.phoneBought(input);
-            return;
-        }
+        store.phoneBought(input);
     }
 
     protected void setPaymentMethod() {
