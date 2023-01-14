@@ -2,11 +2,13 @@ package main;
 
 import java.util.Scanner;
 
+import model.Store;
 import model.user.User;
 
 public class UserMenu {
     Scanner sc = new Scanner(System.in);
     protected User user;
+    Store store = new Store();
 
     public UserMenu(User userLogin) {
         this.user = userLogin;
@@ -18,11 +20,26 @@ public class UserMenu {
         System.out.println("2. Set Payment Method");
         System.out.println("3. See Announcement");
         System.out.println("4. Exit");
-        System.out.print("Choice>>");
+        System.out.print("Choice>> ");
     }
 
     protected void buyNewPhone() {
+        store.showAllPhone();
 
+        int input;
+        System.out.print("Choose Phone to Buy [Type -1 to cancel]>> ");
+        input = sc.nextInt();
+        sc.nextLine();
+
+        if (input == -1) {
+            System.out.println("Returning to previus menu");
+            System.out.println("Press Enter to Continue..");
+            sc.nextLine();
+            return;
+        } else {
+            store.phoneBought(input);
+            return;
+        }
     }
 
     protected void setPaymentMethod() {
@@ -32,7 +49,7 @@ public class UserMenu {
     protected void seeAnnouncement() {
         user.showNews();
 
-        System.out.println("Press Enter to Continue");
+        System.out.println("Press Enter to Continue..");
         sc.nextLine();
     }
 }

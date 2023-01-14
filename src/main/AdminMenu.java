@@ -15,7 +15,7 @@ public class AdminMenu {
         System.out.println("2. Register New Admin");
         System.out.println("3. Make Announcement");
         System.out.println("4. Exit");
-        System.out.print("Choice>>");
+        System.out.print("Choice>> ");
     }
 
     protected void registerNewPhone() {
