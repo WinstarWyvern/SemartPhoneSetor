@@ -1,4 +1,4 @@
-package database;
+package database.userDatabase;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class UserDatabase implements IUserDatabase{
         return userDb;
     }
 
-    private ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<User> users = new ArrayList<>();
 
     @Override
     public ArrayList<User> getAllUser() {

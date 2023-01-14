@@ -2,7 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-import database.ProxyUserDatabase;
+import database.userDatabase.ProxyUserDatabase;
 import factory.UserFactory;
 import model.user.User;
 

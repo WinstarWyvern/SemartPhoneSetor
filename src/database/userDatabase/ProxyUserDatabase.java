@@ -1,4 +1,4 @@
-package database;
+package database.userDatabase;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,13 +6,14 @@ import java.util.Scanner;
 import model.user.User;
 
 public class ProxyUserDatabase implements IUserDatabase {
-    private UserDatabase db;
     Scanner sc = new Scanner(System.in);
-
+    private UserDatabase db;
     private final String captcha = "iamnotabot";
 
     public ProxyUserDatabase() {
-        this.db = UserDatabase.getInstance();
+        if (db == null) {
+            this.db = UserDatabase.getInstance();
+        }
     }
 
     @Override
@@ -44,6 +45,7 @@ public class ProxyUserDatabase implements IUserDatabase {
     private boolean userCaptchaValidation() {
         System.out.print("Input [iamnotarobot] to prove you are not a bot: ");
         String validation = sc.nextLine();
+        System.out.println();
 
         if (validation.equals(captcha)) {
             return true;

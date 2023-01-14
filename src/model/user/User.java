@@ -1,10 +1,12 @@
 package model.user;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.News;
 
-public abstract class User implements IUser{
+public abstract class User implements IUser {
+	protected String id;
 	protected String name;
 	protected String email;
 	protected String password;
@@ -17,6 +19,23 @@ public abstract class User implements IUser{
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		setId();
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	private void setId() {
+		Random rand = new Random();
+		String alphanumeric = "abcdefghijklmnopqrstuvwxyz0123456789";
+		String num = "";
+		Integer mix = -1;
+		for (int i = 0; i < 5; i++) {
+			mix = rand.nextInt(alphanumeric.length());
+			num += (alphanumeric.substring(mix, mix + 1));
+		}
+		this.id = num;
 	}
 
 	public String getName() {

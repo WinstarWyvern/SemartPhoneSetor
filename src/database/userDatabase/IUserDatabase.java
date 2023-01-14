@@ -1,4 +1,4 @@
-package database;
+package database.userDatabase;
 
 import java.util.ArrayList;
 import model.user.User;

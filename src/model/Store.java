@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import database.ProxyUserDatabase;
+import database.userDatabase.ProxyUserDatabase;
 import model.user.User;
 
 public class Store {
