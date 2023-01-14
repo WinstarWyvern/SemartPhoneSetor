@@ -28,7 +28,7 @@ public class LandingMenu {
 		System.out.print("Input Password: ");
 		password = sc.nextLine();
 
-		User userLogin = userDb.checkUserLogin(email, password);
+		User userLogin = userDb.searchUser(email, password);
 
 		int input = -1;
 
