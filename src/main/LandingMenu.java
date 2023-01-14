@@ -64,7 +64,7 @@ public class LandingMenu {
 				if (input == 1) {
 					um.buyNewPhone();
 				} else if (input == 2) {
-					um.setPaymentMethod();
+					um.topUpBalance();
 				} else if (input == 3) {
 					um.seeAnnouncement();
 				} else if (input == 4) {

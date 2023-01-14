@@ -17,7 +17,7 @@ public class UserMenu {
     protected void showUserMenuList() {
         System.out.println("Welcome to User Menu !");
         System.out.println("1. Buy New Phone");
-        System.out.println("2. Set Payment Method");
+        System.out.println("2. Top Up Balance");
         System.out.println("3. See Announcement");
         System.out.println("4. Exit");
         System.out.print("Choice>> ");
@@ -31,11 +31,17 @@ public class UserMenu {
         input = sc.nextInt();
         sc.nextLine();
 
-        store.phoneBought(input);
+        store.buyPhone(input, user);
     }
 
-    protected void setPaymentMethod() {
+    protected void topUpBalance() {
+        System.out.println("Current Balance: " + user.getBalance());
 
+        int amount;
+        System.out.print("Input Amount [min 1000]  [Type -1 to cancel]: ");
+        amount = sc.nextInt();
+
+        store.balanceTopUp(user, amount);
     }
 
     protected void seeAnnouncement() {

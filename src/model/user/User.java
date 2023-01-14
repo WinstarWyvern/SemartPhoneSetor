@@ -12,6 +12,7 @@ public abstract class User implements IUser {
 	protected String password;
 	protected String role;
 	protected ArrayList<News> news;
+	protected int balance;
 
 	public User(String name, String email, String password, String role) {
 		super();
@@ -76,5 +77,13 @@ public abstract class User implements IUser {
 
 	public void setNews(ArrayList<News> news) {
 		this.news = news;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 }

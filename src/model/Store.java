@@ -69,7 +69,20 @@ public class Store {
         }
     }
 
-    public void phoneBought(int index) {
+    public void balanceTopUp(User user, int amount) {
+
+        if (amount < 1000) {
+            System.out.println("You input invalid price, Returning to previus menu !");
+            System.out.println("Press Enter to Continue..");
+            sc.nextLine();
+            return;
+        }
+
+        user.setBalance(user.getBalance() + amount);
+        userDb.updateUser(user);
+    }
+
+    public void buyPhone(int index, User user) {
         if (!indexChecking(index)) {
             return;
         }
@@ -80,7 +93,7 @@ public class Store {
         sc.nextLine();
 
         if (quantity < 0 || quantity > phones.get(index - 1).getQuantity()) {
-            System.out.println("You input invalid quantity, please try again !");
+            System.out.println("You input invalid quantity, Returning to previus menu !");
             System.out.println("Press Enter to Continue..");
             sc.nextLine();
             return;
@@ -88,7 +101,19 @@ public class Store {
             Phone updatedPhone = phones.get(index - 1);
             updatedPhone.setQuantity(updatedPhone.getQuantity() - quantity);
             phoneDb.updatePhone(updatedPhone);
-            System.out.println("Thank you for buying our product, please come back again!");
+
+            User searched = userDb.searchUser(user.getEmail(), user.getPassword());
+
+            if (searched.getBalance() < updatedPhone.getPrice()) {
+                System.out.println("You don't have enough balance, Returning to previus menu !");
+                System.out.println("Press Enter to Continue..");
+                sc.nextLine();
+                return;
+            }
+            searched.setBalance(searched.getBalance() - updatedPhone.getPrice());
+            userDb.updateUser(searched);
+
+            System.out.println("Thank you for buying our product, please come back again !");
             System.out.println("Press Enter to Continue..");
             sc.nextLine();
         }
@@ -105,7 +130,7 @@ public class Store {
 
     private boolean indexChecking(int index) {
         if (index <= 0 || index > phones.size()) {
-            System.out.println("Invalid Input, Returning to previus menu");
+            System.out.println("Invalid Input, Returning to previus menu !");
             System.out.println("Press Enter to Continue..");
             sc.nextLine();
             return false;
