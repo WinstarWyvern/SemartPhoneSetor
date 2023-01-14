@@ -42,6 +42,19 @@ public class Store {
         }
     }
 
+    public void registerPhone(Phone p) {
+        Phone existingPhone = phoneDb.searchPhone(p.getBrand(), p.getName());
+
+        if (existingPhone != null) {
+            System.out.println("Phone already Exist, Phone Registration Failed !");
+            System.out.println("Press Enter to Continue..");
+            sc.nextLine();
+            return;
+        } else {
+            phoneDb.addNewPhone(p);
+        }
+    }
+
     public void showAllUser() {
         int i = 0;
         System.out.println("User List: ");

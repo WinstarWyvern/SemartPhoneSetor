@@ -6,10 +6,10 @@ public class Phone {
     private String id;
     private String name;
     private String brand;
-    private String price;
+    private int price;
     private int quantity;
 
-    public Phone(String name, String brand, String price, int quantity) {
+    public Phone(String name, String brand, int price, int quantity) {
         this.name = name;
         this.brand = brand;
         this.price = price;
@@ -49,11 +49,11 @@ public class Phone {
         this.brand = brand;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

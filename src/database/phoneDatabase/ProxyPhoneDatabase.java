@@ -51,4 +51,15 @@ public class ProxyPhoneDatabase implements IPhoneDatabase {
         return false;
     }
 
+    @Override
+    public Phone searchPhone(String brand, String name) {
+        boolean checked = adminValidation();
+        Phone searched = db.searchPhone(brand, name);
+
+        if (checked) {
+            return searched;
+        }
+        return null;
+    }
+
 }

@@ -32,9 +32,9 @@ public class ProxyUserDatabase implements IUserDatabase {
     }
 
     @Override
-    public User checkUserLogin(String email, String password) {
+    public User searchUser(String email, String password) {
         boolean checked = userCaptchaValidation();
-        User searched = db.checkUserLogin(email, password);
+        User searched = db.searchUser(email, password);
 
         if (searched != null && checked) {
             return searched;
@@ -54,8 +54,11 @@ public class ProxyUserDatabase implements IUserDatabase {
     }
 
     @Override
-    public User updateUser(User u) {
-        // TODO Auto-generated method stub
-        return null;
+    public void updateUser(User u) {
+        boolean checked = userCaptchaValidation();
+
+        if (checked) {
+            db.updateUser(u);
+        }
     }
 }

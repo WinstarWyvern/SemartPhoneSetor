@@ -38,4 +38,14 @@ public class PhoneDatabase implements IPhoneDatabase {
         }
     }
 
+    @Override
+    public Phone searchPhone(String brand, String name) {
+        for (Phone phone : phones) {
+            if (phone.getBrand().equalsIgnoreCase(brand) && phone.getName().equalsIgnoreCase(name)) {
+                return phone;
+            }
+        }
+        return null;
+    }
+
 }

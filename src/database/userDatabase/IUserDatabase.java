@@ -8,7 +8,7 @@ public interface IUserDatabase {
 
     public void addNewUser(User u);
     
-    public User checkUserLogin(String email, String password);
+    public User searchUser(String email, String password);
 
-    public User updateUser(User u);
+    public void updateUser(User u);
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.user.User;
 
-public class UserDatabase implements IUserDatabase{
+public class UserDatabase implements IUserDatabase {
     private static UserDatabase userDb = null;
 
     private UserDatabase() {
@@ -30,7 +30,7 @@ public class UserDatabase implements IUserDatabase{
     }
 
     @Override
-    public User checkUserLogin(String email, String password) {
+    public User searchUser(String email, String password) {
         for (int i = 0; i < users.size(); i++) {
             User u = users.get(i);
             if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
@@ -41,7 +41,11 @@ public class UserDatabase implements IUserDatabase{
     }
 
     @Override
-    public User updateUser(User u) {
-        return null;
+    public void updateUser(User u) {
+        for (User user : users) {
+            if (user.getId().equals(user.getId())) {
+                user = u;
+            }
+        }
     }
 }

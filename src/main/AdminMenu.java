@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 
 import model.News;
+import model.Phone;
 import model.Store;
 import model.user.User;
 
@@ -25,7 +26,28 @@ public class AdminMenu {
     }
 
     protected void registerNewPhone() {
+        String name;
+        String brand;
+        int quantity;
+        int price;
 
+        System.out.print("Input Phone Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Input Phone Brand: ");
+        brand = sc.nextLine();
+
+        System.out.print("Input Phone Quantity: ");
+        quantity = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Input Phone Price: ");
+        price = sc.nextInt();
+        sc.nextLine();
+
+        Phone newPhone = new Phone(name, brand, price, quantity);
+
+        store.registerPhone(newPhone);
     }
 
     protected void registerNewAdmin() {
@@ -43,6 +65,7 @@ public class AdminMenu {
         String title;
         String content;
         String target;
+
         System.out.print("Input Title: ");
         title = sc.nextLine();
         System.out.print("Input Content: ");

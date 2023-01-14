@@ -10,4 +10,6 @@ public interface IPhoneDatabase {
     public void addNewPhone(Phone p);
 
     public void updatePhone(Phone p);
+
+    public Phone searchPhone(String brand, String name);
 }
