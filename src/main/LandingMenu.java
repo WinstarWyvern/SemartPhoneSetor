@@ -68,6 +68,8 @@ public class LandingMenu {
 				} else if (input == 3) {
 					um.seeAnnouncement();
 				} else if (input == 4) {
+					um.checkUpPhone();
+				} else if (input == 5) {
 					System.out.println("Return to Landing Menu");
 					return;
 				} else {

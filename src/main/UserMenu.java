@@ -19,7 +19,8 @@ public class UserMenu {
         System.out.println("1. Buy New Phone");
         System.out.println("2. Top Up Balance");
         System.out.println("3. See Announcement");
-        System.out.println("4. Exit");
+        System.out.println("4. Check Up Phone");
+        System.out.println("5. Exit");
         System.out.print("Choice>> ");
     }
 
@@ -42,6 +43,14 @@ public class UserMenu {
         amount = sc.nextInt();
 
         store.balanceTopUp(user, amount);
+    }
+
+    protected void checkUpPhone() {
+        this.user.checkPhone();
+
+        System.out.println("Thank you For Using Our Service!");
+        System.out.println("Press Enter to Continue..");
+        sc.nextLine();
     }
 
     protected void seeAnnouncement() {

@@ -86,4 +86,22 @@ public abstract class User implements IUser {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+
+	public void checkPhone() {
+		openPhone();
+		cleanPhone();
+		cleanCase();
+		setPhoneBack();
+		checkVirus();
+	}
+
+	public abstract void openPhone();
+
+	public abstract void cleanPhone();
+
+	public abstract void cleanCase();
+
+	public abstract void setPhoneBack();
+
+	public abstract void checkVirus();
 }
