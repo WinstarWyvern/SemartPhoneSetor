@@ -1,7 +1,6 @@
 package model.user;
 
 import model.News;
-import model.Phone;
 
 public class Regular extends User {
 
